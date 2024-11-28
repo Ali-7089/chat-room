@@ -22,9 +22,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.chat_bot_class.ViewModel.AuthViewModel
 
 @Composable
 fun SignUpScreen(
+ authViewModel: AuthViewModel,
  onNavigateToLogin:()->Unit
 ) {
 
@@ -76,6 +78,7 @@ fun SignUpScreen(
         Button(
             onClick = {
 //add the signup function
+                authViewModel.signUp(email, password, firstName, lastName)
                 email = ""
                 password = ""
                 firstName = ""

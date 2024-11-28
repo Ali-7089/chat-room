@@ -23,10 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.chat_bot_class.ViewModel.AuthViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginScreen(
+    authViewModel: AuthViewModel,
     onNavigateToSignUp:()->Unit
 ) {
     var email by remember { mutableStateOf("") }
@@ -60,7 +62,7 @@ fun LoginScreen(
         )
         Button(
             onClick = {
-
+              authViewModel.signIn(email, password)
             },
             modifier = Modifier
                 .fillMaxWidth()
